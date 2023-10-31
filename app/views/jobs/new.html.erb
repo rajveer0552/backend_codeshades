@@ -1,0 +1,18 @@
+<h1>Create a New Job Listing</h1>
+
+<%= form_for @jobset, url: jobs_path do |f| %>
+  <!-- Form fields for name, qualification, designation, and resume -->
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :qualification %>
+  <%= f.text_field :qualification %>
+
+  <%= f.label :designation %>
+  <%= f.text_field :designation %>
+
+  <%= f.label :resume %>
+  <%= f.file_field :resume %>
+
+  <%= f.submit "Create Job Listing" %>
+<% end %>
