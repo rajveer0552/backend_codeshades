@@ -1,7 +1,13 @@
 [build]
   base = "/"
-  publish = "public"  # This is where your Rails app assets will be compiled and served
-  command = "bundle exec rails assets:precompile && bundle exec puma -e production -b 0.0.0.0"
+  publish = "public"
+  command = "bundle exec rails assets:precompile && bundle exec rails server -e production"
 
 [context.production]
-  command = "bundle exec rails db:migrate && bundle exec puma -e production -b 0.0.0.0"
+  command = "bundle exec rails db:migrate"
+
+[context.deploy-preview]
+  command = "bundle exec rails db:migrate"
+
+[context.branch-deploy]
+  command = "bundle exec rails db:migrate"
